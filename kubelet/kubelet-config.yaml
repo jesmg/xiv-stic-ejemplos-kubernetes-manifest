@@ -1,4 +1,6 @@
 apiVersion: kubelet.config.k8s.io/v1beta1
+address: 192.168.1.10
+readOnlyPort: 0
 authentication:
   anonymous:
     enabled: false
@@ -31,6 +33,7 @@ kind: KubeletConfiguration
 logging: {}
 nodeStatusReportFrequency: 0s
 nodeStatusUpdateFrequency: 0s
+# rotateCertificates: false
 rotateCertificates: true
 runtimeRequestTimeout: 0s
 staticPodPath: /etc/kubernetes/manifests
