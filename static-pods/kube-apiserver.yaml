@@ -14,16 +14,18 @@ spec:
   - command:
     - kube-apiserver
     - --advertise-address=172.18.0.2
-    - --allow-privileged=true
-    - --authorization-mode=Node,RBAC
+    - --authorization-mode=Node,RBAC #####
     - --client-ca-file=/etc/kubernetes/pki/ca.crt
-    - --enable-admission-plugins=NodeRestriction
+    - --enable-admission-control=NamespaceLifecycle,LimitRanger,ServiceAccount,TaintNodesByCondition,Priority,DefaultTolerationSeconds,DefaultStorageClass,StorageObjectInUseProtection,PersistentVolumeClaimResize,RuntimeClass,CertificateApproval,CertificateSigning,CertificateSubjectRestriction,DefaultIngressClass,MutatingAdmissionWebhook,ValidatingAdmissionWebhook,ResourceQuota,NodeRestriction,SecurityContextDeny,PodSecurityPolicy,AlwaysPullImages ######
     - --enable-bootstrap-token-auth=true
+    - --audit-log-path=/var/log/kubernetes/apiserver.log #####
+    - --anonymous-auth=false #####
+    - --allow-privileged=false #####
     - --etcd-cafile=/etc/kubernetes/pki/etcd/ca.crt
     - --etcd-certfile=/etc/kubernetes/pki/apiserver-etcd-client.crt
     - --etcd-keyfile=/etc/kubernetes/pki/apiserver-etcd-client.key
     - --etcd-servers=https://127.0.0.1:2379
-    - --insecure-port=0
+    - --insecure-port=0 #####
     - --kubelet-client-certificate=/etc/kubernetes/pki/apiserver-kubelet-client.crt
     - --kubelet-client-key=/etc/kubernetes/pki/apiserver-kubelet-client.key
     - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
@@ -34,7 +36,6 @@ spec:
     - --requestheader-extra-headers-prefix=X-Remote-Extra-
     - --requestheader-group-headers=X-Remote-Group
     - --requestheader-username-headers=X-Remote-User
-    - --runtime-config=
     - --secure-port=6443
     - --service-account-key-file=/etc/kubernetes/pki/sa.pub
     - --service-cluster-ip-range=10.96.0.0/12
