@@ -17,6 +17,7 @@ spec:
     - --authorization-mode=Node,RBAC #####
     - --client-ca-file=/etc/kubernetes/pki/ca.crt
     - --enable-admission-control=NamespaceLifecycle,LimitRanger,ServiceAccount,TaintNodesByCondition,Priority,DefaultTolerationSeconds,DefaultStorageClass,StorageObjectInUseProtection,PersistentVolumeClaimResize,RuntimeClass,CertificateApproval,CertificateSigning,CertificateSubjectRestriction,DefaultIngressClass,MutatingAdmissionWebhook,ValidatingAdmissionWebhook,ResourceQuota,NodeRestriction,SecurityContextDeny,PodSecurityPolicy,AlwaysPullImages ######
+    - --tls-cipher-suites=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA38 #
     - --enable-bootstrap-token-auth=true
     - --audit-log-path=/var/log/kubernetes/apiserver.log #####
     - --anonymous-auth=false #####
