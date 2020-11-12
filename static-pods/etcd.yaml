@@ -16,6 +16,9 @@ spec:
     - --advertise-client-urls=https://172.18.0.2:2379
     - --cert-file=/etc/kubernetes/pki/etcd/server.crt
     - --client-cert-auth=true
+    - --cipher-suites=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+    - --auto-tls=false
+    - --peer-auto-tls=false
     - --data-dir=/var/lib/etcd
     - --initial-advertise-peer-urls=https://172.18.0.2:2380
     - --initial-cluster=kind-control-plane=https://172.18.0.2:2380
